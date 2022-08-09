@@ -16,6 +16,7 @@
 		C008362828A2A0A1007E2305 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C008362728A2A0A1007E2305 /* Assets.xcassets */; };
 		C008362B28A2A0A1007E2305 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C008362928A2A0A1007E2305 /* LaunchScreen.storyboard */; };
 		C018C67D28A2A7D0006A2858 /* EnparaCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018C67C28A2A7D0006A2858 /* EnparaCaseTests.swift */; };
+		C018C68528A2A930006A2858 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018C68428A2A930006A2858 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		C008362C28A2A0A1007E2305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C018C67A28A2A7D0006A2858 /* EnparaCaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnparaCaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C018C67C28A2A7D0006A2858 /* EnparaCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnparaCaseTests.swift; sourceTree = "<group>"; };
+		C018C68428A2A930006A2858 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 		C018C66528A2A657006A2858 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C018C68328A2A922006A2858 /* Services */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -164,6 +167,14 @@
 				C018C67C28A2A7D0006A2858 /* EnparaCaseTests.swift */,
 			);
 			path = EnparaCaseTests;
+			sourceTree = "<group>";
+		};
+		C018C68328A2A922006A2858 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C018C68428A2A930006A2858 /* NetworkManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D2F7D6657DB945E2340832DE /* Pods */ = {
@@ -382,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C018C68528A2A930006A2858 /* NetworkManager.swift in Sources */,
 				C008362328A2A0A0007E2305 /* ViewController.swift in Sources */,
 				C008361F28A2A0A0007E2305 /* AppDelegate.swift in Sources */,
 				C008362128A2A0A0007E2305 /* SceneDelegate.swift in Sources */,
