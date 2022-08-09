@@ -11,4 +11,12 @@ pod 'SwiftLint'
 pod 'Kingfisher', '~> 7.0'
 pod 'Alamofire'
 
+  target 'EnparaCaseTests' do
+    inherit! :search_paths
+    # Pods for testing
+	pod 'SwiftLint'
+	pod 'Kingfisher', '~> 7.0'
+	pod 'Alamofire'
+  end
+
 end
