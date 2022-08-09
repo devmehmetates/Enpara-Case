@@ -17,6 +17,7 @@
 		C008362B28A2A0A1007E2305 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C008362928A2A0A1007E2305 /* LaunchScreen.storyboard */; };
 		C018C67D28A2A7D0006A2858 /* EnparaCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018C67C28A2A7D0006A2858 /* EnparaCaseTests.swift */; };
 		C018C68528A2A930006A2858 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018C68428A2A930006A2858 /* NetworkManager.swift */; };
+		C018C68828A2AEF7006A2858 /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C018C68728A2AEF7006A2858 /* DataDecoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		C018C67A28A2A7D0006A2858 /* EnparaCaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EnparaCaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C018C67C28A2A7D0006A2858 /* EnparaCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnparaCaseTests.swift; sourceTree = "<group>"; };
 		C018C68428A2A930006A2858 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C018C68728A2AEF7006A2858 /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 		C018C66528A2A657006A2858 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C018C68628A2AEA4006A2858 /* Extensions */,
 				C018C68328A2A922006A2858 /* Services */,
 			);
 			path = Utils;
@@ -175,6 +178,14 @@
 				C018C68428A2A930006A2858 /* NetworkManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		C018C68628A2AEA4006A2858 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C018C68728A2AEF7006A2858 /* DataDecoder.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D2F7D6657DB945E2340832DE /* Pods */ = {
@@ -393,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C018C68828A2AEF7006A2858 /* DataDecoder.swift in Sources */,
 				C018C68528A2A930006A2858 /* NetworkManager.swift in Sources */,
 				C008362328A2A0A0007E2305 /* ViewController.swift in Sources */,
 				C008361F28A2A0A0007E2305 /* AppDelegate.swift in Sources */,
