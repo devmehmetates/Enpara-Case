@@ -71,15 +71,63 @@
 		C008361D28A2A0A0007E2305 /* EnparaCase */ = {
 			isa = PBXGroup;
 			children = (
-				C008361E28A2A0A0007E2305 /* AppDelegate.swift */,
-				C008362028A2A0A0007E2305 /* SceneDelegate.swift */,
-				C008362228A2A0A0007E2305 /* ViewController.swift */,
-				C008362428A2A0A0007E2305 /* Main.storyboard */,
-				C008362728A2A0A1007E2305 /* Assets.xcassets */,
-				C008362928A2A0A1007E2305 /* LaunchScreen.storyboard */,
+				C018C66528A2A657006A2858 /* Utils */,
+				C018C66428A2A64E006A2858 /* Models */,
+				C018C66328A2A5B0006A2858 /* Components */,
+				C018C66228A2A59E006A2858 /* Storyboards */,
+				C018C66128A2A58A006A2858 /* Modules */,
+				C018C66028A2A581006A2858 /* CoreApp */,
 				C008362C28A2A0A1007E2305 /* Info.plist */,
 			);
 			path = EnparaCase;
+			sourceTree = "<group>";
+		};
+		C018C66028A2A581006A2858 /* CoreApp */ = {
+			isa = PBXGroup;
+			children = (
+				C008362728A2A0A1007E2305 /* Assets.xcassets */,
+				C008361E28A2A0A0007E2305 /* AppDelegate.swift */,
+				C008362028A2A0A0007E2305 /* SceneDelegate.swift */,
+			);
+			path = CoreApp;
+			sourceTree = "<group>";
+		};
+		C018C66128A2A58A006A2858 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C008362228A2A0A0007E2305 /* ViewController.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		C018C66228A2A59E006A2858 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C008362928A2A0A1007E2305 /* LaunchScreen.storyboard */,
+				C008362428A2A0A0007E2305 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C018C66328A2A5B0006A2858 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		C018C66428A2A64E006A2858 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C018C66528A2A657006A2858 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		D2F7D6657DB945E2340832DE /* Pods */ = {
