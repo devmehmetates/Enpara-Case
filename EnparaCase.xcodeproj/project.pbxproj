@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C3213491106CA7030525D14 /* Pods_EnparaCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106D00358EAECA6D70710A85 /* Pods_EnparaCase.framework */; };
 		C008361F28A2A0A0007E2305 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C008361E28A2A0A0007E2305 /* AppDelegate.swift */; };
 		C008362128A2A0A0007E2305 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C008362028A2A0A0007E2305 /* SceneDelegate.swift */; };
 		C008362328A2A0A0007E2305 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C008362228A2A0A0007E2305 /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		106D00358EAECA6D70710A85 /* Pods_EnparaCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnparaCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BD7A734ED97DE27F0609BC5 /* Pods-EnparaCase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnparaCase.release.xcconfig"; path = "Target Support Files/Pods-EnparaCase/Pods-EnparaCase.release.xcconfig"; sourceTree = "<group>"; };
+		30D2BEFC1D5977ABF500C3E7 /* Pods-EnparaCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnparaCase.debug.xcconfig"; path = "Target Support Files/Pods-EnparaCase/Pods-EnparaCase.debug.xcconfig"; sourceTree = "<group>"; };
 		C008361B28A2A0A0007E2305 /* EnparaCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnparaCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C008361E28A2A0A0007E2305 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C008362028A2A0A0007E2305 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C3213491106CA7030525D14 /* Pods_EnparaCase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E74DE9E8D6F1E31898E1CD3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				106D00358EAECA6D70710A85 /* Pods_EnparaCase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C008361228A2A0A0007E2305 = {
 			isa = PBXGroup;
 			children = (
 				C008361D28A2A0A0007E2305 /* EnparaCase */,
 				C008361C28A2A0A0007E2305 /* Products */,
+				D2F7D6657DB945E2340832DE /* Pods */,
+				4E74DE9E8D6F1E31898E1CD3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,15 @@
 			path = EnparaCase;
 			sourceTree = "<group>";
 		};
+		D2F7D6657DB945E2340832DE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				30D2BEFC1D5977ABF500C3E7 /* Pods-EnparaCase.debug.xcconfig */,
+				2BD7A734ED97DE27F0609BC5 /* Pods-EnparaCase.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C008362F28A2A0A1007E2305 /* Build configuration list for PBXNativeTarget "EnparaCase" */;
 			buildPhases = (
+				F0044BAF08DD58161D233C2D /* [CP] Check Pods Manifest.lock */,
+				C018C65F28A2A42C006A2858 /* Run SwiftLint */,
 				C008361728A2A0A0007E2305 /* Sources */,
 				C008361828A2A0A0007E2305 /* Frameworks */,
 				C008361928A2A0A0007E2305 /* Resources */,
+				7A7E6D693D6983D839DEA810 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7A7E6D693D6983D839DEA810 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EnparaCase/Pods-EnparaCase-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EnparaCase/Pods-EnparaCase-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EnparaCase/Pods-EnparaCase-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C018C65F28A2A42C006A2858 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		F0044BAF08DD58161D233C2D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EnparaCase-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C008361728A2A0A0007E2305 /* Sources */ = {
@@ -282,6 +369,7 @@
 		};
 		C008363028A2A0A1007E2305 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30D2BEFC1D5977ABF500C3E7 /* Pods-EnparaCase.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +398,7 @@
 		};
 		C008363128A2A0A1007E2305 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BD7A734ED97DE27F0609BC5 /* Pods-EnparaCase.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
