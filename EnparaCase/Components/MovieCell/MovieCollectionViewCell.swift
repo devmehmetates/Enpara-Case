@@ -53,34 +53,55 @@ extension MovieCollectionViewCell {
     }
 }
 
+// swiftlint: disable all
 // MARK: - Constraint
 extension MovieCollectionViewCell {
     
+    // MARK: Grid
+    var moviePosterGridTopConstraint: NSLayoutConstraint { moviePosterImageView.topAnchor.constraint(equalTo: contentUIView.topAnchor, constant: 0) }
+    var moviePosterGridTrailingConstraint: NSLayoutConstraint { moviePosterImageView.trailingAnchor.constraint(equalTo: contentUIView.trailingAnchor, constant: 0) }
+    var moviePosterGridLeadingConstraint: NSLayoutConstraint {  moviePosterImageView.leadingAnchor.constraint(equalTo: contentUIView.leadingAnchor, constant: 0) }
+    var moviePosterGridHeightConstraint: NSLayoutConstraint {  moviePosterImageView.heightAnchor.constraint(equalToConstant: 60.0.responsiveW) }
+    
+    var movieTitleLabelGridTopConstraint: NSLayoutConstraint { movieTitleLabel.topAnchor.constraint(equalTo: moviePosterImageView.bottomAnchor, constant: 1.0.responsiveW) }
+    var movieTitleLabelGridTrailingConstraint: NSLayoutConstraint { movieTitleLabel.trailingAnchor.constraint(equalTo: contentUIView.trailingAnchor, constant: -1.0.responsiveW) }
+    var movieTitleLabelGridLeadingConstraint: NSLayoutConstraint { movieTitleLabel.leadingAnchor.constraint(equalTo: contentUIView.leadingAnchor, constant: 1.0.responsiveW) }
+    var movieTitleLabelGridBottomConstraint: NSLayoutConstraint { movieTitleLabel.bottomAnchor.constraint(equalTo: contentUIView.bottomAnchor, constant: -1.0.responsiveW) }
+    
     private var gridLayoutConstaints: [NSLayoutConstraint] {
          [
-            moviePosterImageView.topAnchor .constraint(equalTo: contentUIView.topAnchor, constant: 0),
-            moviePosterImageView.trailingAnchor.constraint(equalTo: contentUIView.trailingAnchor, constant: 0),
-            moviePosterImageView.leadingAnchor.constraint(equalTo: contentUIView.leadingAnchor, constant: 0),
-            moviePosterImageView.heightAnchor.constraint(equalToConstant: 27.0.responsiveH),
-            
-            movieTitleLabel.bottomAnchor.constraint(equalTo: contentUIView.bottomAnchor, constant: -1.0.responsiveW),
-            movieTitleLabel.trailingAnchor.constraint(equalTo: contentUIView.trailingAnchor, constant: -1.0.responsiveW),
-            movieTitleLabel.leadingAnchor.constraint(equalTo: contentUIView.leadingAnchor, constant: 1.0.responsiveW),
-            movieTitleLabel.topAnchor.constraint(equalTo: moviePosterImageView.bottomAnchor, constant: 1.0.responsiveW)
+            moviePosterGridTopConstraint,
+            moviePosterGridTrailingConstraint,
+            moviePosterGridLeadingConstraint,
+            moviePosterGridHeightConstraint,
+            movieTitleLabelGridTopConstraint,
+            movieTitleLabelGridTrailingConstraint,
+            movieTitleLabelGridLeadingConstraint,
+            movieTitleLabelGridBottomConstraint
          ]
     }
     
+    // MARK: List
+    var moviePosterListTopConstraint: NSLayoutConstraint { moviePosterImageView.topAnchor.constraint(equalTo: contentUIView.topAnchor, constant: 0) }
+    var moviePosterListLeadingConstraint: NSLayoutConstraint { moviePosterImageView.leadingAnchor.constraint(equalTo: contentUIView.leadingAnchor, constant: 0) }
+    var moviePosterListBottomConstraint: NSLayoutConstraint { moviePosterImageView.bottomAnchor.constraint(equalTo: contentUIView.bottomAnchor, constant: 0) }
+    var moviePosterListWidthConstraint: NSLayoutConstraint { moviePosterImageView.widthAnchor.constraint(equalToConstant: 30.0.responsiveW) }
+    
+    var movieTitleLabelListLeadingConstraint: NSLayoutConstraint { movieTitleLabel.leadingAnchor.constraint(equalTo: moviePosterImageView.trailingAnchor, constant: 1.0.responsiveW) }
+    var movieTitleLabelListTopConstraint: NSLayoutConstraint { movieTitleLabel.topAnchor.constraint(equalTo: contentUIView.topAnchor, constant: 0) }
+    var movieTitleLabelListBottomConstraint: NSLayoutConstraint { movieTitleLabel.bottomAnchor.constraint(equalTo: contentUIView.bottomAnchor, constant: 0) }
+    var movieTitleLabelListTrailingConstraint: NSLayoutConstraint { movieTitleLabel.trailingAnchor.constraint(equalTo: contentUIView.trailingAnchor, constant: -1.0.responsiveW) }
+    
     private var listLayoutConstaints: [NSLayoutConstraint] {
          [
-            moviePosterImageView.topAnchor.constraint(equalTo: contentUIView.topAnchor, constant: 0),
-            moviePosterImageView.leadingAnchor.constraint(equalTo: contentUIView.leadingAnchor, constant: 0),
-            moviePosterImageView.bottomAnchor.constraint(equalTo: contentUIView.bottomAnchor, constant: 0),
-
-            movieTitleLabel.leadingAnchor.constraint(equalTo: moviePosterImageView.trailingAnchor, constant: 1.0.responsiveW),
-            movieTitleLabel.topAnchor.constraint(equalTo: contentUIView.topAnchor, constant: 0),
-            movieTitleLabel.bottomAnchor.constraint(equalTo: contentUIView.bottomAnchor, constant: 0),
-            movieTitleLabel.trailingAnchor.constraint(equalTo: contentUIView.trailingAnchor, constant: -1.0.responsiveW),
-            movieTitleLabel.widthAnchor.constraint(equalToConstant: 80.0.responsiveW)
+            moviePosterListTopConstraint,
+            moviePosterListLeadingConstraint,
+            moviePosterListBottomConstraint,
+            moviePosterListWidthConstraint,
+            movieTitleLabelListLeadingConstraint,
+            movieTitleLabelListTopConstraint,
+            movieTitleLabelListBottomConstraint,
+            movieTitleLabelListTrailingConstraint
          ]
     }
 }
@@ -89,6 +110,7 @@ extension MovieCollectionViewCell {
 extension MovieCollectionViewCell {
     
     private func changeCellLayout() {
+        
         moviePosterImageView.removeFromSuperview()
         contentUIView.addSubview(moviePosterImageView)
         
@@ -97,11 +119,15 @@ extension MovieCollectionViewCell {
         
         switch layoutType {
         case .list:
+            moviePosterImageView.removeConstraint(moviePosterGridTrailingConstraint)
+            moviePosterImageView.removeConstraint(moviePosterGridHeightConstraint)
             NSLayoutConstraint.deactivate(gridLayoutConstaints)
             NSLayoutConstraint.activate(listLayoutConstaints)
             
             self.contentUIView.layer.cornerRadius = 10
         case .grid:
+            moviePosterImageView.removeConstraint(moviePosterListWidthConstraint)
+            moviePosterImageView.removeConstraint(moviePosterListBottomConstraint)
             NSLayoutConstraint.deactivate(listLayoutConstaints)
             NSLayoutConstraint.activate(gridLayoutConstaints)
             
