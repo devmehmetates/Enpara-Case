@@ -73,7 +73,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UkB-HI-cix">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="fGP-T3-xhU">
+                        <barButtonItem key="rightBarButtonItem" id="fGP-T3-xhU">
                             <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="CKL-Dm-5wC">
                                 <rect key="frame" x="302" y="5.5" width="92" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

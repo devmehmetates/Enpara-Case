@@ -5,7 +5,6 @@
 //  Created by Mehmet Ateş on 9.08.2022.
 //
 
-
 protocol MovieListViewModel { }
 
 // MARK: - Network

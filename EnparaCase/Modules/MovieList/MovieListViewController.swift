@@ -58,7 +58,7 @@ extension MovieListViewController {
         movieCollectionView.reloadData()
     }
     
-    @IBAction func loadMoreButtonTapped(_ sender: UIButton) {
+    @IBAction private func loadMoreButtonTapped(_ sender: UIButton) {
         if currentPage != totalPage ?? 1 {
             self.currentPage += 1
         }
