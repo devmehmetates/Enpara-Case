@@ -8,6 +8,7 @@
 import UIKit
 
 class MovieListViewController: UIViewController, MovieListViewModel {
+
     @IBOutlet private var movieCollectionView: UICollectionView!
     private var layoutType = LayoutType.grid
     private var baseMovies: [Movie] = []
