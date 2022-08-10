@@ -92,6 +92,7 @@ extension MovieListViewController {
     @objc
     private func refreshMovieList(_ sender: Any) {
         movies.removeAll()
+        baseMovies.removeAll()
         currentPage = 1
         self.refreshControl.endRefreshing()
     }
