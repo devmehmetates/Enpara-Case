@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIImageView {
+
     func applyBlurEffect() {
         let blurEffect = UIBlurEffect(style: .systemUltraThinMaterial)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
