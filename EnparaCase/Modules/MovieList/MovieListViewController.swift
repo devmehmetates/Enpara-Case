@@ -153,9 +153,9 @@ extension MovieListViewController: UICollectionViewDataSource {
         as? MovieCollectionViewCell else { return UICollectionViewCell() }
         let movie: Movie = movies[indexPath.row]
         
-        cell.setMoviePoster(withPosterPath: movie.posterImage)
-        cell.setMovieTitleLabel(withTitle: movie.title)
-        cell.setCellLayoutTpye(withLayoutType: layoutType)
+        cell.setMoviePoster = movie.posterImage
+        cell.setmovieTitleLabel = movie.title
+        cell.setCellLayoutType = layoutType
         
         return cell
     }
@@ -168,15 +168,10 @@ extension MovieListViewController: UICollectionViewDataSource {
         let movie: Movie = movies[indexPath.row]
         guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "MovieDetails")
                 as? MovieDetailsViewController else { return }
-        detailVC.setMovieId(movie.id ?? 0)
-        detailVC.setNavigationTitle(withMovieName: movie.title ?? "")
+        detailVC.setMovieId = movie.id
+        detailVC.setNavigationTitle = movie.title
         navigationController?.pushViewController(detailVC, animated: true)
     }
-}
-
-// MARK: - Enums
-enum LayoutType {
-    case list, grid
 }
 
 // MARK: - SearchBar
@@ -198,4 +193,9 @@ extension MovieListViewController: UISearchResultsUpdating {
         
         self.movieCollectionView.reloadData()
     }
+}
+
+// MARK: - Enums
+enum LayoutType {
+    case list, grid
 }
