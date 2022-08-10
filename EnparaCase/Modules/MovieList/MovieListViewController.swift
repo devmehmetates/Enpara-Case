@@ -20,6 +20,7 @@ class MovieListViewController: UIViewController, MovieListViewModel {
     }
     private var totalPage: Int?
     
+    private let refreshControl = UIRefreshControl()
     private var searchBar: UISearchController = {
         let searchBar = UISearchController()
         searchBar.searchBar.placeholder = "Enter the movie name"
@@ -40,6 +41,7 @@ extension MovieListViewController {
         configureCollectionViewDelegate()
         configureCollectionViewDataSource()
         configureSearchBar()
+        configureRefreshController()
         self.title = "Top Rated"
         requestApi()
     }
@@ -78,6 +80,23 @@ extension MovieListViewController {
     }
 }
 
+// MARK: Refresh
+extension MovieListViewController {
+    
+    private func configureRefreshController() {
+        self.movieCollectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshMovieList(_:)), for: .valueChanged)
+        self.movieCollectionView.addSubview(refreshControl)
+    }
+    
+    @objc
+    private func refreshMovieList(_ sender: Any) {
+        movies.removeAll()
+        currentPage = 1
+        self.refreshControl.endRefreshing()
+    }
+}
+
 // MARK: - Collection View Delegate and FlowLayout
 extension MovieListViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -96,7 +115,7 @@ extension MovieListViewController: UICollectionViewDelegate, UICollectionViewDel
             case .list:
                 return CGSize(width: 97.0.responsiveW, height: 20.0.responsiveW)
             case .grid:
-                return CGSize(width: 47.0.responsiveW, height: 75.0.responsiveW)
+                return CGSize(width: 46.5.responsiveW, height: 75.0.responsiveW)
             }
         }
     }
@@ -125,7 +144,7 @@ extension MovieListViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row == movies.count {
+        if indexPath.row == movies.count || movies.isEmpty {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LoadMore", for: indexPath)
             return cell
         }
