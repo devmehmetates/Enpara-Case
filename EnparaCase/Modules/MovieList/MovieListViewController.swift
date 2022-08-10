@@ -31,11 +31,6 @@ class MovieListViewController: UIViewController, MovieListViewModel {
         super.viewDidLoad()
         configureContents()
     }
-    @IBAction func loadMoreButtonTapped(_ sender: UIButton) {
-        if currentPage != totalPage ?? 1 {
-            self.currentPage += 1
-        }
-    }
 }
 
 // MARK: - Configure Contents
@@ -61,6 +56,12 @@ extension MovieListViewController {
         }
         
         movieCollectionView.reloadData()
+    }
+    
+    @IBAction func loadMoreButtonTapped(_ sender: UIButton) {
+        if currentPage != totalPage ?? 1 {
+            self.currentPage += 1
+        }
     }
 }
 
