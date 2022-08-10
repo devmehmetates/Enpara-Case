@@ -162,6 +162,7 @@ enum LayoutType {
 
 // MARK: - SearchBar
 extension MovieListViewController: UISearchResultsUpdating {
+
     private func configureSearchBar() {
         self.searchBar.searchResultsUpdater = self
         navigationItem.searchController = searchBar
