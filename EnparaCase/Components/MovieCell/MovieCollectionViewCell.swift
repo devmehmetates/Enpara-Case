@@ -48,18 +48,24 @@ class MovieCollectionViewCell: UICollectionViewCell {
          ]
     }
     
-    func setMoviePoster(withPosterPath path: String) {
-        guard let posterSource = URL(string: path) else { return }
-        moviePosterImageView.kf.setImage(with: posterSource)
+    var setMoviePoster: String? {
+        didSet {
+            guard let posterSource = URL(string: setMoviePoster ?? "") else { return }
+            moviePosterImageView.kf.setImage(with: posterSource)
+        }
     }
     
-    func setMovieTitleLabel(withTitle title: String?) {
-        movieTitleLabel.text = title
-        configureContents()
+    var setmovieTitleLabel: String? {
+        didSet {
+            movieTitleLabel.text = setmovieTitleLabel
+            configureContents()
+        }
     }
     
-    func setCellLayoutTpye(withLayoutType layoutTpye: LayoutType) {
-        self.layoutType = layoutTpye
+    var setCellLayoutType: LayoutType? {
+        didSet {
+            self.layoutType = setCellLayoutType ?? .grid
+        }
     }
     
     private func changeCellLayout() {
@@ -70,21 +76,18 @@ class MovieCollectionViewCell: UICollectionViewCell {
         contentUIView.addSubview(movieTitleLabel)
         
         switch layoutType {
-            
         case .list:
-            NSLayoutConstraint.activate(listLayoutConstaints)
             NSLayoutConstraint.deactivate(gridLayoutConstaints)
+            NSLayoutConstraint.activate(listLayoutConstaints)
             
             self.contentUIView.layer.cornerRadius = 10
         case .grid:
-            NSLayoutConstraint.activate(gridLayoutConstaints)
             NSLayoutConstraint.deactivate(listLayoutConstaints)
+            NSLayoutConstraint.activate(gridLayoutConstaints)
             
             self.contentUIView.layer.cornerRadius = 15
         }
         
-        movieTitleLabel.updateConstraintsIfNeeded()
-        moviePosterImageView.updateConstraintsIfNeeded()
         movieTitleLabel.layoutIfNeeded()
         moviePosterImageView.layoutIfNeeded()
     }
@@ -92,8 +95,6 @@ class MovieCollectionViewCell: UICollectionViewCell {
     private func configureContents() {
         movieTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         moviePosterImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate(gridLayoutConstaints)
         
         self.contentUIView.layer.cornerRadius = 15
         self.contentUIView.layer.masksToBounds = true

@@ -153,9 +153,9 @@ extension MovieListViewController: UICollectionViewDataSource {
         as? MovieCollectionViewCell else { return UICollectionViewCell() }
         let movie: Movie = movies[indexPath.row]
         
-        cell.setMoviePoster(withPosterPath: movie.posterImage)
-        cell.setMovieTitleLabel(withTitle: movie.title)
-        cell.setCellLayoutTpye(withLayoutType: layoutType)
+        cell.setMoviePoster = movie.posterImage
+        cell.setmovieTitleLabel = movie.title
+        cell.setCellLayoutType = layoutType
         
         return cell
     }
