@@ -18,16 +18,7 @@ class MovieDetailsViewController: UIViewController, MovieDetailsViewModel {
     var movie: Movie? {
         didSet {
             guard let movie = movie else { return }
-            guard let poster = URL(string: movie.posterImage) else { return }
-            guard let background = URL(string: movie.backgroundImage) else { return }
-            moviePoster.kf.setImage(with: poster)
-            moviePoster.layer.cornerRadius = 15
-            moviePoster.layer.masksToBounds = true
-            movieBackground.kf.setImage(with: background)
-            movieBackground.applyBlurEffect()
-            overviewLabel.text = movie.overview
-            popularityLabel.text = "Popularity: \((movie.popularity ?? 0).formatted())"
-            pointLabel.text = "AVG Vote: \((movie.voteAverage ?? 0).formatted())"
+            configureContents(with: movie)
         }
     }
     
@@ -43,22 +34,45 @@ class MovieDetailsViewController: UIViewController, MovieDetailsViewModel {
         super.viewDidLoad()
     }
     
-    func setNavigationTitle(withMovieName name: String) {
-        self.title = name
+    var setNavigationTitle: String? {
+        didSet {
+            self.title = setNavigationTitle
+        }
     }
     
-    func setMovieId(_ id: Int) {
-        self.movieId = id
+    var setMovieId: Int? {
+        didSet {
+            self.movieId = setMovieId ?? 0
+        }
     }
 }
 
-extension UIImageView {
-    func applyBlurEffect() {
-        let blurEffect = UIBlurEffect(style: .systemUltraThinMaterial)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = bounds
-        blurEffectView.alpha = 0.8
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        addSubview(blurEffectView)
+// MARK: - Configure
+extension MovieDetailsViewController {
+    
+    private func configureContents(with movie: Movie) {
+        guard let poster = URL(string: movie.posterImage) else { return }
+        guard let background = URL(string: movie.backgroundImage) else { return }
+        
+        configureMoviePoster(withSource: poster)
+        configureMovieBackground(withSource: background)
+        configureLabels(withMovie: movie)
+    }
+    
+    private func configureMoviePoster(withSource poster: URL) {
+        moviePoster.kf.setImage(with: poster)
+        moviePoster.layer.cornerRadius = 15
+        moviePoster.layer.masksToBounds = true
+    }
+    
+    private func configureMovieBackground(withSource background: URL) {
+        movieBackground.kf.setImage(with: background)
+        movieBackground.applyBlurEffect()
+    }
+    
+    private func configureLabels(withMovie movie: Movie) {
+        overviewLabel.text = movie.overview
+        popularityLabel.text = "Popularity: \((movie.popularity ?? 0).formatted())"
+        pointLabel.text = "AVG Vote: \((movie.voteAverage ?? 0).formatted())"
     }
 }
